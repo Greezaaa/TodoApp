@@ -1,5 +1,9 @@
-# Webpack configurado
+## First try of JS TODO APP
 
-Para usar este repositorio, deberán ejecutar el comando de ```npm install```
+`npm install` - to install node moduls \
 
-Pero esto lo veremos en la siguiente sección
+`npm start` - to run app on localhost \
+
+`npm run build:dev` - to run dev build \
+
+`npm run build` - to run production build \
