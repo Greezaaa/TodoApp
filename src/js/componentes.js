@@ -1,8 +1,7 @@
 
 
-//ingresar nuevo todo
 import { Todo } from "../classes";
-import { TodoList } from "../classes";
+import { todoList } from "../index";
 
 //referencias
 const txtInput = document.querySelector('.new-todo');
@@ -10,28 +9,35 @@ const divTodoList = document.querySelector('.todo-list')
 const btnBorrarTodo = document.querySelector('.clear-completed');
 const ulFiltros = document.querySelector('.filters');
 const aFiltros = document.querySelectorAll('.filtro')
+
+
+
 export const crearTodoHtml = (todo) => {
     const htmlTodo = `
-    <li class="${(todo.compoletado) ? 'completed' : ''}" data-id="${todo.id}">
-    <div class="view">
-        <input class="toggle" type="checkbox" ${(todo.compoletado) ? 'checked' : ''}>
-        <label>${todo.tarea}</label>
-        <button class="destroy"></button>
-    </div>
-    <input class="edit" value="Create a TodoMVC template">
-</li> `
+                    <li class="${(todo.completado) ? 'completed' : ''}" data-id="${todo.id}">
+                        <div class="view">
+                            <input class="toggle" type="checkbox" ${(todo.completado) ? 'checked' : ''}>
+                            <label>${todo.tarea}</label>
+                            <button class="destroy"></button>
+                        </div>
+                        <input class="edit" value="Create a TodoMVC template">
+                    </li> 
+                `;
     const div = document.createElement('div');
     div.innerHTML = htmlTodo;
     divTodoList.append(div.firstElementChild);
-    return div.firstElementChild
+    return div.firstElementChild;
 }
 //creamos un listener para el campo Input
 txtInput.addEventListener('keyup', (event) => {
+
     // validamos que se precione ENTER y que el campo input no este vacio
     if (event.key === 'Enter' && txtInput.value.length > 0) {
+
         //guardamos contenido de input en variable "nuevoTodo"
-        const nuevoTodo = new Todo(txtInput.value)
+        const nuevoTodo = new Todo(txtInput.value);
         //creamos nueva tarea
+
         todoList.nuevoTodo(nuevoTodo);
         //agregamos nueva tarea en HTML
         crearTodoHtml(nuevoTodo);

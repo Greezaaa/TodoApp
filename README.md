@@ -1,4 +1,4 @@
-## First try of JS TODO APP
+## First try of "JS TODO APP"
 
 `npm install` - to install node moduls \
 
